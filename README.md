@@ -25,3 +25,40 @@ same for Teacher only #tenure needs to be created by us because it needs to hand
 
 ##################################### Part 2 - More entities and relationships ##################################################
 
+I am imagining a scenario here that might not be a real life scenario
+but adding a classroom to our domain;
+
+a classroom belongs to one responsible teacher
+a classromm has many students through session
+a student has many classrooms through session
+
+a session belongs to a student
+a session belongs to a classroom
+
+classroom (:id :integer, :name :string, :type :string, :teacher_id :integer)
+session (:id :integer, :number :string, :classroom_id :integer, :student_id :integer)
+
+### classroom class methods ###
+.all
+### classroom instance methods ###
+#teacher
+#name
+#students
+
+### student additional instance methods ###
+#classrooms
+#sessions
+
+
+another idea can be subject and enrollment
+
+a student can enroll in many subjects
+a subject can have many students through enrollment
+a subject belongs to one teacher
+
+subject(:id :integer, :name :string, :teacher_id :integer)
+enrollment(:id :integer, :student_id :integer, subject_id :integer)
+
+now we can return the subjects enrolled by the student (instance method)
+and all students who enrolled a subject (instance method)
+
